@@ -159,26 +159,78 @@
 #         que custam R$ 80,00. Informe ao usuário a quantidades de latas de tinta a serem compradas e o preço total.
 
 # print("Iniciando o TintaCerta")
+
 # size = float(input("Quantos metros quadrados tem a área a ser pintada? "))
 # cust_area = size / 3
 # tin_liters = 18
 # tin_price = 80
 # tin_amount = cust_area / tin_liters
-# tin_amount_int = round(tin_amount + 0.5)
-# total_price = tin_amount_int * tin_price
-# if tin_amount_int == 1:
-#     print("É preciso de {} lata de tinta para pintar essa área!\nCusto total de {:.2f} reais.".format(tin_amount_int,total_price))
+# verific = tin_amount / int(tin_amount)
+
+# if verific > 1:
+#     final_tin = round(tin_amount + 0.5)
 # else:
-#     print("É preciso de {} latas de tintas para pintar essa área!\nCusto total de {:.2f} reais.".format(tin_amount_int,total_price))
+#     final_tin = tin_amount
+
+# total_price = final_tin * tin_price
+
+# if final_tin == 1:
+#     print("É preciso de {:.0f} lata de tinta para pintar essa área!\nCusto total de {:.2f} reais.".format(final_tin,total_price))
+# else:
+#     print("É preciso de {} latas de tintas para pintar essa área!\nCusto total de {:.2f} reais.".format(final_tin,total_price))
 
 #EXE 17 - Faça um Programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada.
-#         Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00  #         ou em galões de 3,6 litros, que custam R$ 25,00.
+#         Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00
+#         ou em galões de 3,6 litros, que custam R$ 25,00.
 #         Informe ao usuário as quantidades de tinta a serem compradas e os respectivos preços em 3 situações:
 #          - comprar apenas latas de 18 litros;
 #          - comprar apenas galões de 3,6 litros;
 #          - misturar latas e galões, de forma que o preço seja o menor. Acrescente 10% de folga e sempre arredonde os valores para cima, isto é
 #            considere latas cheias.
 
+print("Iniciando o TintaCerta 2.0")
+
+class Tin:
+
+    def __init__(self, liter, price):
+        self.liter = liter
+        self.price = price
+
+tin_big = Tin(18, 80)
+tin_small = Tin(3.6, 25)
+
+size = float(input("Quantos metros quadrados tem a área a ser pintada? "))
+cust_area = size /6
+liter_big = cust_area / tin_big.liter
+liter_small = cust_area / tin_small.liter
+verific_big = liter_big / int(liter_big)
+verific_small = liter_small / int(liter_small)
+
+# print("cust_area: {}".format(cust_area))
+# print("liter_big: {}".format(liter_big))
+# print("liter_small: {}".format(liter_small))
+# print("verific_big: {}".format(verific_big))
+# print("verific_small: {}".format(verific_small))
+
+if verific_big > 1:
+    final_tin_big = round(liter_big + 0.5)
+else:
+    final_tin_big = liter_big
+
+if verific_small > 1:
+    final_tin_small = round(liter_small + 0.5)
+else:
+    final_tin_small = liter_small
+
+# print("final_tin_big: {}".format(final_tin_big))
+# print("final_tin_small: {}".format(final_tin_small))
+
+total_price_big = final_tin_big * tin_big.price
+total_price_small = final_tin_small * tin_small.price
+
+print("É preciso de {:.0f} latas de tinta para pintar essa área!\nCusto total de {:.2f} reais.".format(final_tin_big, total_price_big))
+print("É preciso de {:.0f} galões de tinta para pintar essa área!\nCusto total de {:.2f} reais.".format(final_tin_small, total_price_small))
+# print("É preciso de {} latas e {} galões de tinta para pintar essa área!\nCusto total de {:.2f} reais.".format(liter_small, price_area_tin_small))
 
 
 
